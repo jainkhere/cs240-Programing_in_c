@@ -42,5 +42,6 @@ int main(void) {
         // %0.1f    -> Format specifier to print float till 1 decimal point.
         printf("%d \t %0.1f\n", f, c);
     }
+    
     return 0;
 }
