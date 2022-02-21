@@ -1,6 +1,6 @@
 /**
  * @file blocks-switch.c
- * @author kunal jain (kunal.jain051@umb.edu)
+ * @author kunal jain (kunal.jain001@umb.edu)
  * @brief Program to demonstrate switch block
  * @version 0.1
  * @date 2022-02-16
