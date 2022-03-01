@@ -113,7 +113,7 @@ int main(void) {
 
     // *ip -> x -> 0
     // ++*ip -> ++(*ip) -> *ip = *ip + 1
-    printf("++*ip -> %d\n", ++(*ip));
+    printf("++*ip -> %d\n", ++*ip);
     // Increment in *ip means increment in x.
     printf("Value of x -> %d\n", x);
     printf("Value at ip -> %d\n", *ip);
