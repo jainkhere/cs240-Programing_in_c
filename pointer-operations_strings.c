@@ -152,8 +152,8 @@ int main() {
     // Uncomment the function that you want to run
     // and check the output for.
 
-    // char arr1 = "Hello world!";
-    // char arr2;
+    // char arr1[] = "Hello world!";
+    // char arr2[] = "";
     // strlen1(arr1);
     // strlen2(arr1);
     // strlen3(arr1);
