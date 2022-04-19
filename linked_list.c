@@ -117,8 +117,47 @@ struct NODE* appendNewNode (struct NODE* first, int character) {
 // Instead of going to the first element and then going through
 // all the elements using node.next to reach last element, 
 // keep track of last node and append new element to this last node.
-appendNewNodeFaster (struct NODE * first, struct NODE * last, int character) {
-    // TODO
+void appendNewNodeFaster (struct NODE ** addr_of_first, struct NODE ** addr_of_last, int character) {
+    // Create first and last node to hold value at address of first and last node
+    struct NODE * first = NULL;
+    struct NODE * last = NULL;
+
+    first = *addr_of_first;
+    last = *addr_of_last;
+
+    // create a new_node
+    // allocate memory using malloc
+    // new_node.value = character
+    // new_node.next = null
+    struct NODE * new_node = malloc(sizeof(struct NODE));
+    (*new_node).value = character;
+    (*new_node).next = NULL;
+
+    // If first = null, that means list is empty
+    if (first == NULL) {
+        // add new_node at starting position
+        // first = new_node and last = new_node
+        first = new_node;
+        last = new_node;
+
+        // update the value at address of first and last
+        *addr_of_first = first;
+        *addr_of_last = last;
+    }
+
+    // If first != null
+    else {
+        // Because we already have a track of 
+        // last node of the linked list, 
+        // just add a new node next to it
+
+        // set last.next to new_node
+        (*last).next = new_node;
+
+        // update value at address of last
+        *addr_of_last = new_node;
+    }
+
 }
 
 int main(void) {
@@ -127,6 +166,7 @@ int main(void) {
     // Create pointer to NODE and initialize it with null value
     // This is first NODE in the linked list
     struct NODE * first = NULL;
+    struct NODE * last = NULL;
     
     // Read input characters
     while((character = getchar()) != EOF) {
@@ -137,6 +177,9 @@ int main(void) {
 
         // Append a character at the front of a linked list
         // first = addNewNodeFront(first, character);
+
+        // Append a character faster in linked list
+        appendNewNodeFaster(&first, &last, character);
     }
     // print all characters that we just read.
     // start printing from first character
