@@ -29,7 +29,7 @@ struct TREENODE {
 // Create short hand for struct TREENODE
 typedef struct TREENODE NODE;
 
-void add_value_to_node (NODE ** addr_of_root, int insert_value) {
+void add_value_to_tree (NODE ** addr_of_root, int insert_value) {
     // Create a root node to hold value at address of root
     NODE * root = *addr_of_root;
 
@@ -86,11 +86,11 @@ void add_value_to_node (NODE ** addr_of_root, int insert_value) {
 
     // If left child of root exist but it's value is 
     // less than or equal to insert_value then
-    // 1. Call add_value_to_node on left subtree.
+    // 1. Call add_value_to_tree on left subtree.
     // 2. make root the parent of left child
     // 3. set left_child node as left child of root
     if ((*left_child).value <= insert_value) {
-        add_value_to_node(&left_child, insert_value);
+        add_value_to_tree(&left_child, insert_value);
         (*left_child).parent = root;
         (*root).left = left_child;
         return;
@@ -98,11 +98,11 @@ void add_value_to_node (NODE ** addr_of_root, int insert_value) {
 
     // If right child of root exist but it's value is 
     // less than or equal to insert_value then
-    // 1. Call add_value_to_node on right subtree.
+    // 1. Call add_value_to_tree on right subtree.
     // 2. make root the parent of right child
     // 3. set right_child node as right child of root
     if ((*right_child).value <= insert_value) {
-        add_value_to_node(&right_child, insert_value);
+        add_value_to_tree(&right_child, insert_value);
         (*right_child).parent = root;
         (*root).right = right_child;
         return;
@@ -138,7 +138,7 @@ NODE * find_node (NODE * root, int node_to_find) {
     // return this node
 }
 
-// Inorder traverdal of tree
+// Inorder traversal of tree
 void print_in_order (NODE * node) {
     // In order traversal - Left Root Right
 
@@ -165,7 +165,7 @@ int main(void) {
     // Create tree by adding node
     int character;
     while(scanf("%d", &character) != EOF) {
-        add_value_to_node(&root, character);
+        add_value_to_tree(&root, character);
     }
 
     // Print tree using in order traversal
