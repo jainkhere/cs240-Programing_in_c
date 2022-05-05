@@ -155,7 +155,7 @@ NODE * merge_two_trees (NODE * r1, NODE * r2) {
     // Check if any one of both the trees is null
     // if any one is null, then return
     if (r1 == NULL)
-        return r1;
+        return r2;
     if (r2 == NULL)
         return r1;
     
@@ -239,7 +239,6 @@ void remove_node (NODE ** addr_of_root, int value_to_remove) {
     //    otherwise set right child as right child of parent
     // 3. Remove node_to_remove using free.
     if (right_child != NULL) {
-        // printf("Value of right of NTR -> \n", (*right_child).value);
         (*right_child).parent = parent;
 
         if (node_to_remove == (*parent).left) {
@@ -249,7 +248,7 @@ void remove_node (NODE ** addr_of_root, int value_to_remove) {
             (*parent).right = right_child;
         }
 
-        free(right_child);
+        free(node_to_remove);
     }
 
     // If no above condition is met then that means we have to remove leaf node
@@ -303,9 +302,6 @@ int main(void) {
     printf("Value of found node -> %d\n", (*node).value);
 
     remove_node(&root, 15);
-
-    // node = find_node(root, 10);
-    // printf("Value of found node -> %d\n", (*node).value);
 
     // Print tree using in order traversal
     printf("Inorder traversal -> ");
