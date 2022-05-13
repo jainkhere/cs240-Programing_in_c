@@ -13,8 +13,8 @@
 #include<stdio.h>
 
 // Remember ->
-// Read * notation as Value at variable
-// and read & notation as Address of variable.
+// Read * notation as Value at variable *x ->  value at x
+// and read & notation as Address of variable. &x -> address of x
 
 int main(void) {
     int x = 2, y = 5;
@@ -38,8 +38,6 @@ int main(void) {
     
     // We can not use integer variables to store address
     // of variables.
-
-    // int* ip = &x;
     
     // Illegal. Following code produces warning.
     // int l;
