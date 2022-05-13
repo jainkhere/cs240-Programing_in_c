@@ -249,6 +249,7 @@ void remove_node (NODE ** addr_of_root, int value_to_remove) {
         }
 
         free(node_to_remove);
+        return;
     }
 
     // If no above condition is met then that means we have to remove leaf node
